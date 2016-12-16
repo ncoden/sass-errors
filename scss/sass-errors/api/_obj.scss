@@ -1,0 +1,15 @@
+
+@function serr-obj(
+  $options: (),
+  $args...
+) {
+  $options: -serr-multi-map-merge($-serr-default-options, $options, $args);
+  $opt_log: map-get($options, 'log');
+
+  @if $opt_log {
+    @return ();
+  }
+  @else {
+    @return true;
+  }
+}

@@ -1,0 +1,19 @@
+
+@function serr-init($options: (), $args...){
+  $defaults: (
+    prefix: null,
+    throw: false,
+    throw_type: 'error',
+    log: false
+  );
+
+  $-serr-default-options: () !default !global;
+  $-serr-default-options: -serr-multi-map-merge(
+    $defaults,
+    $-serr-default-options,
+    $options,
+    $args
+  ) !global;
+
+  @return $-serr-default-options;
+}

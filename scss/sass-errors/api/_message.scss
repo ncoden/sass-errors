@@ -1,0 +1,10 @@
+
+@function serr-message($error, $prefix: null) {
+  $msg: '';
+  @if $prefix != null {
+    $msg: $msg + $prefix + ': ';
+  }
+  $msg: $msg + $error;
+
+  @return $msg;
+}

@@ -1,0 +1,10 @@
+// Helpers
+@import 'sass-errors/helpers/multi-map-merge';
+
+// API
+@import 'sass-errors/api/init';
+@import 'sass-errors/api/obj';
+@import 'sass-errors/api/message';
+@import 'sass-errors/api/throw';
+
+$_: serr-init();

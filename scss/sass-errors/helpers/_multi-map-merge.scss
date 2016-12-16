@@ -1,0 +1,10 @@
+
+@function -serr-multi-map-merge($maps...) {
+  $ret: ();
+
+  @each $map in $maps {
+    $ret: map-merge($ret, $map);
+  }
+
+  @return $ret;
+}
