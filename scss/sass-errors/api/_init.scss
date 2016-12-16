@@ -1,5 +1,5 @@
 
-@function serr-init($options: (), $args...){
+@function serr-init($options: ()){
   $defaults: (
     prefix: null,
     throw: true,
@@ -11,8 +11,7 @@
   $-serr-default-options: -serr-multi-map-merge(
     $defaults,
     $-serr-default-options,
-    $options,
-    $args
+    $options
   ) !global;
 
   @return $-serr-default-options;

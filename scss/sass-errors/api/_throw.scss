@@ -4,10 +4,9 @@
   $message: null,
   $status: null,
   $datas: (),
-  $options: (),
-  $args...
+  $options: ()
 ) {
-  $options: -serr-multi-map-merge($-serr-default-options, $options, $args);
+  $options: map-merge($-serr-default-options, $options);
   $opt_prefix:      map-get($options, 'prefix');
   $opt_throw:       map-get($options, 'throw');
   $opt_throw_type:  map-get($options, 'throw_type');
