@@ -8,7 +8,6 @@ npm install ncoden/sass-errors
 
 :warning: This Sass module is still in development.
 
-Version 0.1.0 - MIT License.
 ### Usage
 
 ```scss
@@ -17,3 +16,4 @@ Version 0.1.0 - MIT License.
 $_: serr-throw('Something Happened');
 ```
 
+Version 0.2.0 - MIT License.
