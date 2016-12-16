@@ -1,0 +1,30 @@
+{
+  "name": "sass-errors",
+  "version": "0.1.0",
+  "description": "✨ Awesome Error Handling in Sass",
+  "main": "eyeglass-exports.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ncoden/sass-errors.git"
+  },
+  "author": {
+    "name": "Nicolas Coden",
+    "email": "nicolas@ncoden.fr",
+    "url": "https://ncoden.fr"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ncoden/sass-errors/issues"
+  },
+  "homepage": "https://github.com/ncoden/sass-errors#readme",
+  "files": [
+    "scss"
+  ],
+  "keywords": ["eyeglass-module", "sass", "errors", "handling", "sass-errors"],
+  "dependencies": {
+    "eyeglass": "^1.2.1"
+  }
+}
