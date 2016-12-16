@@ -1,6 +1,5 @@
 
 @function serr-throw(
-  $obj: null,
   $message: null,
   $status: null,
   $datas: (),
@@ -12,11 +11,7 @@
   $opt_throw_type:  map-get($options, 'throw_type');
   $opt_log:         map-get($options, 'log');
 
-  @if $obj == null {
-    $obj: serr-obj($options);
-  }
   $full_msg: '';
-
   @if $opt_log or $opt_throw {
     $full_msg: serr-message($message, $opt_prefix);
   }
@@ -26,18 +21,16 @@
   }
 
   @if $opt_log {
-    $obj: append($obj, (
+    @return (
       full_message: $full_msg,
       message: $message,
       status: $status,
       datas: $datas
-    ));
+    );
   }
   @else {
-    $obj: false;
+    @return false;
   }
-
-  @return $obj;
 }
 
 @function -serr-throw-error($msg, $type: 'error') {

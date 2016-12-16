@@ -1,0 +1,25 @@
+
+@function serr-obj-throw(
+  $obj: null,
+  $message: null,
+  $status: null,
+  $datas: (),
+  $options: ()
+) {
+  $options: map-merge($-serr-default-options, $options);
+  $opt_log: map-get($options, 'log');
+
+  @if $obj == null {
+    $obj: serr-obj($options);
+  }
+
+  $err: serr-throw($message, $status, $datas, $options);
+
+  @if $opt_log {
+    $obj: append($obj, $err);
+    @return $obj;
+  }
+  @else {
+    @return $err;
+  }
+}
