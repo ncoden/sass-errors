@@ -2,7 +2,7 @@
 @function serr-init($options: (), $args...){
   $defaults: (
     prefix: null,
-    throw: false,
+    throw: true,
     throw_type: 'error',
     log: false
   );
