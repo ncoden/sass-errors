@@ -1,5 +1,5 @@
 
-@function -serr-multi-map-merge($maps...) {
+@function -sass-errors-multi-map-merge($maps...) {
   $ret: ();
 
   @each $map in $maps {

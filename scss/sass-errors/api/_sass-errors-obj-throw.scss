@@ -1,19 +1,19 @@
 
-@function serr-obj-throw(
+@function sass-errors-obj-throw(
   $obj: null,
   $message: null,
   $status: null,
   $datas: (),
   $options: ()
 ) {
-  $options: map-merge($-serr-default-options, $options);
+  $options: map-merge($-sass-errors-default-options, $options);
   $opt_log: map-get($options, 'log');
 
   @if $obj == null {
-    $obj: serr-obj($options);
+    $obj: sass-errors-obj($options);
   }
 
-  $err: serr-throw($message, $status, $datas, $options);
+  $err: sass-errors-throw($message, $status, $datas, $options);
 
   @if $opt_log {
     $obj: append($obj, $err);

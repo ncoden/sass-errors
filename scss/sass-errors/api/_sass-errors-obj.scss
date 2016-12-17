@@ -1,6 +1,6 @@
 
-@function serr-obj($options: ()) {
-  $options: map-merge($-serr-default-options, $options);
+@function sass-errors-obj($options: ()) {
+  $options: map-merge($-sass-errors-default-options, $options);
   $opt_log: map-get($options, 'log');
 
   @if $opt_log {

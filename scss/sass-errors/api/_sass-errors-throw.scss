@@ -1,11 +1,11 @@
 
-@function serr-throw(
+@function sass-errors-throw(
   $message: null,
   $status: null,
   $datas: (),
   $options: ()
 ) {
-  $options: map-merge($-serr-default-options, $options);
+  $options: map-merge($-sass-errors-default-options, $options);
   $opt_prefix:      map-get($options, 'prefix');
   $opt_throw:       map-get($options, 'throw');
   $opt_throw_type:  map-get($options, 'throw_type');
@@ -13,11 +13,11 @@
 
   $full_msg: '';
   @if $opt_log or $opt_throw {
-    $full_msg: serr-message($message, $opt_prefix);
+    $full_msg: sass-errors-message($message, $opt_prefix);
   }
 
   @if $opt_throw {
-    $_: -serr-throw-error($full_msg, $opt_throw_type);
+    $_: -sass-errors-throw-error($full_msg, $opt_throw_type);
   }
 
   @if $opt_log {
@@ -33,7 +33,7 @@
   }
 }
 
-@function -serr-throw-error($msg, $type: 'error') {
+@function -sass-errors-throw-error($msg, $type: 'error') {
   @if $type == 'error' {
     @error $msg;
   }
