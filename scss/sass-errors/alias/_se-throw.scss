@@ -1,0 +1,4 @@
+
+@function se-throw($args...){
+  @return sass-errors-throw($args...);
+}

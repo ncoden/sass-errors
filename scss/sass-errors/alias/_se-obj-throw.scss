@@ -1,0 +1,4 @@
+
+@function se-obj-throw($args...){
+  @return sass-errors-obj-throw($args...);
+}

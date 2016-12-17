@@ -8,4 +8,11 @@
 @import 'sass-errors/api/sass-errors-obj';
 @import 'sass-errors/api/sass-errors-obj-throw';
 
-$_: sass-errors-init();
+// Aliases
+@import 'sass-errors/alias/se-init';
+@import 'sass-errors/alias/se-message';
+@import 'sass-errors/alias/se-throw';
+@import 'sass-errors/alias/se-obj';
+@import 'sass-errors/alias/se-obj-throw';
+
+$_: se-init();
