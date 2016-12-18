@@ -1,0 +1,10 @@
+//
+// Sass Errors unit tests
+//
+
+@import "true";
+@import '../scss/sass-errors.scss';
+
+@include test-module('sass-errors') {
+
+}
