@@ -1,3 +1,28 @@
+///
+/// Creates an Exception object and returns it.
+/// If an Exception is passed as first argument, returns it.
+///
+/// @group API
+///
+/// @param {String} $error - Error message
+/// @param {String} $type - Exception type
+/// @param {Map} $datas [()] - Map of relevant datas to be embedded in the Exception
+/// @param {String} $prefix [$-sass-errors-prefix] - Message prefix, global prefix by default (see `sass-errors-init`)
+///
+/// @return {Exception}
+///
+/// @example
+///   @function my-function($value) {
+///     $e: sass-errors-new('Error', 'unknown_error', (value: $value), 'my-function');
+///
+///     // (
+///     //   message: 'my-function: Error',
+///     //   error: 'Error',
+///     //   type: 'unknown_error',
+///     //   datas: (value: ...),
+///     // )
+///   }
+///
 
 @function sass-errors-new(
   $error,

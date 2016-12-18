@@ -1,3 +1,36 @@
+///
+/// Create an Exception, append it to the given store `$obj` and return it.
+/// The new exception is not thrown. If an Exception is passed as second
+/// argument, store it.
+///
+/// @group API
+/// @see sass-errors-new
+///
+/// @param {List} $obj - List where to store the new Exception
+/// @param $args... - Arguments used to create an Exception. See `@function sass-errors-new`
+///
+/// @return {List} - The new list
+///
+/// @example
+///   $store: ();
+///   $store: sass-errors-new($store, 'Error 1', 'unknown_error');
+///   $store: sass-errors-new($store, 'Error 2', 'unknown_error');
+///
+///   // (
+///   //   (
+///   //     message: 'Error 1',
+///   //     error: 'Error 1,
+///   //     type: 'unknown_error',
+///   //     datas: ()
+///   //   ),
+///   //   (
+///   //     message: 'Error 2',
+///   //     error: 'Error 1,
+///   //     type: 'unknown_error',
+///   //     datas: ()
+///   //   )
+///   // )
+///
 
 @function sass-errors-store($obj, $args...) {
   $e: sass-errors-new($args...);

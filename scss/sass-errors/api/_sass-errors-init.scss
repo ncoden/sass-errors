@@ -1,3 +1,13 @@
+///
+/// Initialize Sass Errors required variables and options
+///
+/// @group API
+///
+/// @param {String} $prefix [null] - Default prefix for new Exceptions
+///
+/// @example
+///   $_: sass-errors-init();
+///
 
 @function sass-errors-init($prefix: null) {
   $-sass-errors-exception: null !default !global;
