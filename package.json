@@ -5,7 +5,8 @@
   "description": "✨ Awesome Error Handling in Sass",
   "main": "eyeglass-exports.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "gulp docs"
   },
   "repository": {
     "type": "git",
