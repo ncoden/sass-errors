@@ -23,8 +23,18 @@
   "files": [
     "scss"
   ],
-  "keywords": ["eyeglass-module", "sass", "errors", "handling", "sass-errors"],
+  "keywords": [
+    "eyeglass-module",
+    "sass",
+    "errors",
+    "handling",
+    "sass-errors"
+  ],
   "dependencies": {
     "eyeglass": "^1.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "sassdoc": "^2.1.20"
   }
 }
