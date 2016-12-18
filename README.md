@@ -12,8 +12,11 @@ npm install ncoden/sass-errors
 
 ```scss
 @import 'sass-errors';
+@import 'sass-errors-alias';
 
-$_: serr-throw('Something Happened');
+@function my-func() {
+  @return se-throw('Something Happened');
+}
 ```
 
 Version 0.2.0 - MIT License.
