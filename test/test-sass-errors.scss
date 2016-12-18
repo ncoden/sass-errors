@@ -1,0 +1,23 @@
+//
+// Sass Errors unit tests
+//
+
+@import "true";
+@import '../scss/sass-errors.scss';
+
+@include test-module('sass-errors') {
+
+  @import 'api/test-sass-errors-init';
+  @import 'api/test-sass-errors-message';
+  @import 'api/test-sass-errors-store';
+
+  @import 'api/test-sass-errors-new';
+  @import 'api/test-sass-errors-throw';
+  @import 'api/test-sass-errors-try';
+  @import 'api/test-sass-errors-catch';
+  @import 'api/test-sass-errors-try-catch';
+
+  @import 'api/test-sass-errors-get';
+  @import 'api/test-sass-errors-is-exception';
+
+}

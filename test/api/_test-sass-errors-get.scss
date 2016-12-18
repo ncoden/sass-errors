@@ -1,0 +1,21 @@
+@include test('sass-errors-get') {
+  $_: sass-errors-init();
+
+  $expected_exception: (
+    message: 'Error',
+    error: 'Error',
+    type: 'error_type',
+    datas: ()
+  );
+
+  $_: sass-errors-throw('Error', 'error_type');
+  @include assert-equal(sass-errors-get(), $expected_exception,
+    'Should return a thrown Exception');
+  @include assert-equal(sass-errors-get(), $expected_exception,
+    'Should return several times a thrown Exception');
+
+  $_: sass-errors-catch();
+  @include assert-equal(sass-errors-get(), null,
+    'Should not return a catched Exception');
+
+}

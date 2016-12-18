@@ -1,0 +1,23 @@
+@include test('sass-errors-store') {
+  $_: sass-errors-init();
+
+  $basic_exception: (
+    message: 'ERROR',
+    error: 'ERROR',
+    type: 'TYPE',
+    datas: (index: 'value')
+  );
+
+  $store: ();
+  $store: sass-errors-store($store, 'ERROR', 'TYPE', (index: 'value'));
+  @include assert-equal(length($store), 1,
+    'Should append a new Exception to the store');
+  $store: sass-errors-store($store, 'ERROR', 'TYPE', (index: 'value'));
+  @include assert-equal(length($store), 2,
+    'Should append a new Exception to the store');
+
+  $store: sass-errors-store($store, $basic_exception);
+  @include assert-equal(length($store), 3,
+    'Should append a given Exception to the store');
+
+}
