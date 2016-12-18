@@ -35,6 +35,7 @@
     "eyeglass": "^1.2.1"
   },
   "devDependencies": {
+    "browser-sync": "^2.18.5",
     "gulp": "^3.9.1",
     "sassdoc": "^2.1.20"
   }
