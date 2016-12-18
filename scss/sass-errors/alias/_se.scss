@@ -1,3 +1,6 @@
+
+// Api
+
 @function se-init($args...){
   @return sass-errors-init($args...);
 }
@@ -34,3 +37,16 @@
   @return sass-errors-is-exception($args...);
 }
 
+// Handlers
+
+@function se-debug($args...){
+  @return sass-errors-debug($args...);
+}
+
+@function se-error($args...){
+  @return sass-errors-error($args...);
+}
+
+@function se-warn($args...){
+  @return sass-errors-warn($args...);
+}

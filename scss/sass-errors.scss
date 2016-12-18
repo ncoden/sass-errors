@@ -1,4 +1,5 @@
 // Helpers
+@import 'sass-errors/helpers/sass-errors-get-exception-message';
 
 // API
 @import 'sass-errors/api/sass-errors-init';
@@ -12,5 +13,9 @@
 @import 'sass-errors/api/sass-errors-get';
 @import 'sass-errors/api/sass-errors-is-exception';
 
+// Exception Handlers
+@import 'sass-errors/handler/sass-errors-debug';
+@import 'sass-errors/handler/sass-errors-warn';
+@import 'sass-errors/handler/sass-errors-error';
 
 $_: se-init();
