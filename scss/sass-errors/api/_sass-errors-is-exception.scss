@@ -1,0 +1,4 @@
+
+@function sass-errors-is-exception() {
+  @return ($-sass-errors-exception != null);
+}

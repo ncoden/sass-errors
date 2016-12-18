@@ -14,3 +14,11 @@
   @return sass-errors-throw($args...);
 }
 
+@function se-get($args...){
+  @return sass-errors-get($args...);
+}
+
+@function se-is-exception($args...){
+  @return sass-errors-is-exception($args...);
+}
+
