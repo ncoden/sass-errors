@@ -1,0 +1,23 @@
+
+@function sass-errors-try($func_name, $func_args: ()) {
+  $res: call($func_name, $func_args...);
+
+  $e: $-sass-errors-exception;
+  @if $e != null {
+    @return false;
+  }
+
+  @if $res == false {
+    @return sass-errors-throw(
+      $error: 'Function encuntered an unknow error. Expected @return to not be false.',
+      $type: 'unknown_error',
+      $datas: (
+        func_name: $func-name,
+        func_args: $func-args
+      ),
+      $prefix: $func-name
+    );
+  }
+
+  @return $res;
+}
