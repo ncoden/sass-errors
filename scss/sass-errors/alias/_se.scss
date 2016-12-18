@@ -5,6 +5,10 @@
   @return sass-errors-init($args...);
 }
 
+@function se-store($args...){
+  @return sass-errors-store($args...);
+}
+
 @function se-message($args...){
   @return sass-errors-message($args...);
 }
