@@ -19,4 +19,4 @@ npm install ncoden/sass-errors
 }
 ```
 
-Version 0.2.0 - MIT License.
+Version 0.3.0 - MIT License.
