@@ -1,0 +1,42 @@
+@include test('sass-errors-catch') {
+  $_: sass-errors-init();
+
+  $expected_exception: (
+    message: 'Error',
+    error: 'Error',
+    type: 'error_type',
+    datas: ()
+  );
+
+  $_: sass-errors-throw('Error', 'error_type');
+  $e: sass-errors-catch();
+  @include assert-equal($e, $expected_exception,
+    'Should catch and return a thrown Exception');
+
+  $e: sass-errors-catch();
+  @include assert-equal($e, null,
+    'Should not catch an already catched Exception');
+
+  $__TESTS__: (
+    'Should catch and return a thrown Exception when its type matches.': (
+      ( 'error_type' ): $expected_exception,
+      ( '_a', 'error_type' ): $expected_exception,
+      ( '_a', 'error_type', '_b' ): $expected_exception,
+    ),
+    'Should not catch or return a thrown Exception when its type does not match.': (
+      ( '_a' ): null,
+      ( '_a', '_b' ): null,
+      ( '_a', '_b', '_c' ): null,
+    )
+  );
+
+  @each $suite, $tests in $__TESTS__ {
+    @each $args, $expect in $tests {
+
+      $_: sass-errors-throw('Error', 'error_type');
+      @include assert-equal(sass-errors-catch($args...), $expect, $suite);
+
+    }
+  }
+
+}
