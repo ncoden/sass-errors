@@ -18,11 +18,10 @@
 ///
 
 @function sass-errors-message($error, $prefix: null) {
-  $msg: '';
-  @if $prefix != null {
-    $msg: $msg + $prefix + ': ';
+  @if type-of($prefix) == 'string' and str-length($prefix) > 0 {
+    @return '#{$prefix}: #{$error}';
   }
-  $msg: $msg + $error;
-
-  @return $msg;
+  @else {
+    @return #{$error};
+  }
 }
