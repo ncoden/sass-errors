@@ -1,18 +1,21 @@
 // Helpers
-@import 'sass-errors/helpers/multi-map-merge';
+@import 'sass-errors/helpers/sass-errors-get-exception-message';
 
 // API
 @import 'sass-errors/api/sass-errors-init';
 @import 'sass-errors/api/sass-errors-message';
+@import 'sass-errors/api/sass-errors-new';
 @import 'sass-errors/api/sass-errors-throw';
-@import 'sass-errors/api/sass-errors-obj';
-@import 'sass-errors/api/sass-errors-obj-throw';
+@import 'sass-errors/api/sass-errors-try';
+@import 'sass-errors/api/sass-errors-catch';
+@import 'sass-errors/api/sass-errors-try-catch';
 
-// Aliases
-@import 'sass-errors/alias/se-init';
-@import 'sass-errors/alias/se-message';
-@import 'sass-errors/alias/se-throw';
-@import 'sass-errors/alias/se-obj';
-@import 'sass-errors/alias/se-obj-throw';
+@import 'sass-errors/api/sass-errors-get';
+@import 'sass-errors/api/sass-errors-is-exception';
 
-$_: se-init();
+// Exception Handlers
+@import 'sass-errors/handler/sass-errors-debug';
+@import 'sass-errors/handler/sass-errors-warn';
+@import 'sass-errors/handler/sass-errors-error';
+
+$_: sass-errors-init();

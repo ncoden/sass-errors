@@ -1,0 +1,7 @@
+
+@function -sass-errors-get-exception-message($e) {
+  @if type-of($e) == 'map' and map-has-key($e, 'message') {
+    @return map-get($e, 'message');
+  }
+  @return false;
+}

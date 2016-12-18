@@ -1,0 +1,17 @@
+
+@function sass-errors-catch($types...) {
+  $e: $-sass-errors-exception !global;
+
+  @if $e != null {
+
+    $type: map-get($e, 'type');
+    $is-types: length($types) != 0;
+
+    @if not $is-types or ($is-types and index($types, $type) != null) {
+      $-sass-errors-exception: null !global;
+      @return $e;
+    }
+
+  }
+  @return null;
+}
