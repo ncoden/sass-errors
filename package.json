@@ -1,10 +1,12 @@
 {
   "name": "sass-errors",
+  "title": "Sass Errors",
   "version": "0.3.0",
   "description": "✨ Awesome Error Handling in Sass",
   "main": "eyeglass-exports.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "gulp docs"
   },
   "repository": {
     "type": "git",
@@ -23,8 +25,19 @@
   "files": [
     "scss"
   ],
-  "keywords": ["eyeglass-module", "sass", "errors", "handling", "sass-errors"],
+  "keywords": [
+    "eyeglass-module",
+    "sass",
+    "errors",
+    "handling",
+    "sass-errors"
+  ],
   "dependencies": {
     "eyeglass": "^1.2.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.5",
+    "gulp": "^3.9.1",
+    "sassdoc": "^2.1.20"
   }
 }

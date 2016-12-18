@@ -1,3 +1,42 @@
+///
+/// Call a try function with `sass-errors-try`. If an Exception is thrown,
+/// catch it with `sass-errors-catch` and pass the Exception to the given
+/// catch function with its arguments.
+///
+/// If the try function returns `false` or has throw an Exception, returns
+/// `false. Otherwise, returns the function return.
+///
+/// @group API
+/// @see sass-errors-try
+/// @see sass-errors-catch
+///
+/// @param {String} $try_func_name - Name of the function to call.
+/// @param {List} $try_func_args [()] - Arguments of the function to call.
+/// @param {String} $catch_func_name [sass-errors-error] - Name of the function to which the Exception is passed.
+/// @param {List} $catch_func_args [()] - Arguments of the catch function, following the Exception.
+///
+/// @return {* | False} - The function return.
+///
+/// @example scss
+///   @function my-try-function-with-value() {
+///     @return 'simple_value';
+///   }
+///
+///   @function my-try-function-with-exception() {
+///     @return sass-errors-throw('Error', 'my_error_type');
+///   }
+///
+///   @function my-catch-function($e) {
+///     @debug $e;
+///   }
+///
+///   $ret: sass-errors-try-catch(my-try-function-with-value, (), my-catch-function, ());
+///   // 'simple value'
+///
+///   $ret: sass-errors-try-catch(my-try-function-with-exception, (), my-catch-function, ());
+///   // $ret: `false`
+///   // @debug: 'my_error_type' Exception
+///
 
 @function sass-errors-try-catch(
   $try_func_name,

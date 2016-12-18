@@ -1,3 +1,27 @@
+///
+/// Returns `true` if an Exception has been thrown and not catched, `false`
+/// otherwise.
+///
+/// @group API
+///
+/// @return {Boolean}
+///
+/// @example scss - Check if an Exception exists
+///   @function my-function-with-exception() {
+///     @return sass-errors-throw('Error', 'my_error_type');
+///   }
+///
+///   $is_e: sass-errors-is-exception();
+///   // `false`
+///
+///   $ret: my-function-with-exception();
+///   $is_e: sass-errors-is-exception();
+///   // `true`
+///
+///   $e: sass-errors-catch();
+///   $is_e: sass-errors-is-exception();
+///   // `false`
+///
 
 @function sass-errors-is-exception() {
   @return ($-sass-errors-exception != null);

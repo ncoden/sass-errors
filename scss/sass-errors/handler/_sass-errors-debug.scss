@@ -1,3 +1,18 @@
+///
+/// Display the message of the given Exception `$e` with @debug.
+/// This function is an Exception Handler and can be passed as a catch
+/// function to `sass-errors-try-catch`.
+///
+/// @group Handler
+/// @see sass-errors-try-catch
+///
+/// @param {Exception} $e
+///
+/// @example
+///   $e: sass-errors-throw('Error', $prefix: 'my-function');
+///   $_: sass-errors-debug($e);
+///   // @debug: 'my-function: Error'
+///
 
 @function sass-errors-debug($e) {
   $msg: -sass-errors-get-exception-message($e);
