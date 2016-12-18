@@ -2,7 +2,7 @@
 @function sass-errors-try-catch(
   $try_func_name,
   $try_func_args: (),
-  $catch_func_name: null,
+  $catch_func_name: sass-errors-error,
   $catch_func_args: (),
   $types: ()
 ) {
