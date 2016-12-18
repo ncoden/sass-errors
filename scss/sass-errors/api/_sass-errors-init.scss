@@ -1,18 +1,7 @@
 
-@function sass-errors-init($options: ()){
-  $defaults: (
-    prefix: null,
-    throw: true,
-    throw_type: 'error',
-    log: false
-  );
+@function sass-errors-init($prefix: null) {
+  $-sass-errors-exception: null !default !global;
+  $-sass-errors-prefix: $prefix !global;
 
-  $-sass-errors-default-options: () !default !global;
-  $-sass-errors-default-options: -sass-errors-multi-map-merge(
-    $defaults,
-    $-sass-errors-default-options,
-    $options
-  ) !global;
-
-  @return $-sass-errors-default-options;
+  @return null;
 }

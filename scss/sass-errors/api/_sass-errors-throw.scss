@@ -1,48 +1,8 @@
 
-@function sass-errors-throw(
-  $message: null,
-  $status: null,
-  $datas: (),
-  $options: ()
-) {
-  $options: map-merge($-sass-errors-default-options, $options);
-  $opt_prefix:      map-get($options, 'prefix');
-  $opt_throw:       map-get($options, 'throw');
-  $opt_throw_type:  map-get($options, 'throw_type');
-  $opt_log:         map-get($options, 'log');
+@function sass-errors-throw($args...) {
+  $e: sass-errors-new($args...);
 
-  $full_msg: '';
-  @if $opt_log or $opt_throw {
-    $full_msg: sass-errors-message($message, $opt_prefix);
-  }
+  $-sass-errors-exception: $e !global;
 
-  @if $opt_throw {
-    $_: -sass-errors-throw-error($full_msg, $opt_throw_type);
-  }
-
-  @if $opt_log {
-    @return (
-      full_message: $full_msg,
-      message: $message,
-      status: $status,
-      datas: $datas
-    );
-  }
-  @else {
-    @return false;
-  }
-}
-
-@function -sass-errors-throw-error($msg, $type: 'error') {
-  @if $type == 'error' {
-    @error $msg;
-  }
-  @else if $type == 'warn' {
-    @warn $msg;
-  }
-  @else if $type == 'debug' {
-    @debug $msg;
-  }
-
-  @return null;
+  @return false;
 }

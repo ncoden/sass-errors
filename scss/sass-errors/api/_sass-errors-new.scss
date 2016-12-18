@@ -1,0 +1,20 @@
+
+@function sass-errors-new(
+  $error,
+  $type: null,
+  $datas: (),
+  $prefix: $-sass-errors-prefix
+) {
+  @if type-of($error) == 'map' {
+    @return $error;
+  }
+
+  $message: sass-errors-message($error, $prefix);
+
+  @return (
+    message: $message,
+    error: $error,
+    type: $type,
+    datas: $datas
+  );
+}

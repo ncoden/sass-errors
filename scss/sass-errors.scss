@@ -1,9 +1,9 @@
 // Helpers
-@import 'sass-errors/helpers/multi-map-merge';
 
 // API
 @import 'sass-errors/api/sass-errors-init';
 @import 'sass-errors/api/sass-errors-message';
+@import 'sass-errors/api/sass-errors-new';
 @import 'sass-errors/api/sass-errors-throw';
 
 // Aliases
