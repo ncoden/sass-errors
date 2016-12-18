@@ -1,0 +1,4 @@
+
+@function sass-errors-get() {
+  @return $-sass-errors-exception;
+}

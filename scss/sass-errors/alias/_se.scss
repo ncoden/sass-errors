@@ -1,0 +1,56 @@
+
+// Api
+
+@function se-init($args...){
+  @return sass-errors-init($args...);
+}
+
+@function se-store($args...){
+  @return sass-errors-store($args...);
+}
+
+@function se-message($args...){
+  @return sass-errors-message($args...);
+}
+
+@function se-new($args...){
+  @return sass-errors-new($args...);
+}
+
+@function se-throw($args...){
+  @return sass-errors-throw($args...);
+}
+
+@function se-try($args...){
+  @return sass-errors-try($args...);
+}
+
+@function se-catch($args...){
+  @return sass-errors-catch($args...);
+}
+
+@function se-try-catch($args...) {
+  @return sass-errors-try-catch($args...);
+}
+
+@function se-get($args...){
+  @return sass-errors-get($args...);
+}
+
+@function se-is-exception($args...){
+  @return sass-errors-is-exception($args...);
+}
+
+// Handlers
+
+@function se-debug($args...){
+  @return sass-errors-debug($args...);
+}
+
+@function se-error($args...){
+  @return sass-errors-error($args...);
+}
+
+@function se-warn($args...){
+  @return sass-errors-warn($args...);
+}

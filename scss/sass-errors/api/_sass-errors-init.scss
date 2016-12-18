@@ -1,0 +1,7 @@
+
+@function sass-errors-init($prefix: null) {
+  $-sass-errors-exception: null !default !global;
+  $-sass-errors-prefix: $prefix !global;
+
+  @return null;
+}

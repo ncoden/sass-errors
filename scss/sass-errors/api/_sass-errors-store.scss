@@ -1,0 +1,11 @@
+
+@function sass-errors-store($obj, $args...) {
+  $e: sass-errors-new($args...);
+
+  @if type-of($obj) != 'list' {
+    $obj: ();
+  }
+  $obj: append($obj, $e);
+
+  @return $obj;
+}

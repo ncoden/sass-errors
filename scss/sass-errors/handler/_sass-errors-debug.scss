@@ -1,0 +1,9 @@
+
+@function sass-errors-debug($e) {
+  $msg: -sass-errors-get-exception-message($e);
+  @if ($msg) {
+    @debug $msg;
+  }
+
+  @return null;
+}

@@ -1,0 +1,9 @@
+
+@function sass-errors-warn($e) {
+  $msg: -sass-errors-get-exception-message($e);
+  @if ($msg) {
+    @warn $msg;
+  }
+
+  @return null;
+}

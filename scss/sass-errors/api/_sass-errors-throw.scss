@@ -1,0 +1,8 @@
+
+@function sass-errors-throw($args...) {
+  $e: sass-errors-new($args...);
+
+  $-sass-errors-exception: $e !global;
+
+  @return false;
+}
