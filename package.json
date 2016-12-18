@@ -1,5 +1,6 @@
 {
   "name": "sass-errors",
+  "title": "Sass Errors",
   "version": "0.3.0",
   "description": "✨ Awesome Error Handling in Sass",
   "main": "eyeglass-exports.js",
