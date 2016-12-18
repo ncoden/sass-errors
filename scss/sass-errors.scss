@@ -6,9 +6,5 @@
 @import 'sass-errors/api/sass-errors-new';
 @import 'sass-errors/api/sass-errors-throw';
 
-// Aliases
-@import 'sass-errors/alias/se-init';
-@import 'sass-errors/alias/se-message';
-@import 'sass-errors/alias/se-throw';
 
 $_: se-init();

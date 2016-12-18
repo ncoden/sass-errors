@@ -1,0 +1,16 @@
+@function se-init($args...){
+  @return sass-errors-init($args...);
+}
+
+@function se-message($args...){
+  @return sass-errors-message($args...);
+}
+
+@function se-new($args...){
+  @return sass-errors-new($args...);
+}
+
+@function se-throw($args...){
+  @return sass-errors-throw($args...);
+}
+
