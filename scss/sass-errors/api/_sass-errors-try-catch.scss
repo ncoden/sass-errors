@@ -1,7 +1,7 @@
 ///
 /// If the passed value `$value` is equal to `false` and no exception has been
 /// thrown, throw a new `unknown_error` Exception.
-
+///
 /// If an Exception has been thrown, catch it with `sass-errors-catch` and pass
 /// the Exception to the given Exception Handler `$handler` with its arguments
 /// `$handler_args`. The `$handler` function must be defined in the same scope
