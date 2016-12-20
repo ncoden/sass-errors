@@ -1,0 +1,25 @@
+@include test('sass-errors-message') {
+
+  $__TESTS__: (
+    'Should return a simple message.': (
+      ( null                  ): '',
+      ( null,         null    ): '',
+      ( ''                    ): '',
+      ( '',         ''        ): '',
+      ( 'MESSAGE'             ): 'MESSAGE',
+      ( 'MESSAGE',  ''        ): 'MESSAGE'
+    ),
+    'Should return a prefixed message.': (
+      ( null,       'PREFIX'  ): 'PREFIX: ',
+      ( '',         'PREFIX'  ): 'PREFIX: ',
+      ( 'MESSAGE',  'PREFIX'  ): 'PREFIX: MESSAGE'
+    )
+  );
+
+  @each $suite, $tests in $__TESTS__ {
+    @each $args, $expect in $tests {
+      @include assert-equal(sass-errors-message($args...), $expect, $suite);
+    }
+  }
+
+}

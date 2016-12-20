@@ -1,56 +1,68 @@
+////
+/// @group Alias
+////
 
-// Api
-
+/// @alias sass-errors-init
 @function se-init($args...){
   @return sass-errors-init($args...);
 }
 
+/// @alias sass-errors-store
 @function se-store($args...){
   @return sass-errors-store($args...);
 }
 
+/// @alias sass-errors-message
 @function se-message($args...){
   @return sass-errors-message($args...);
 }
 
+/// @alias sass-errors-new
 @function se-new($args...){
   @return sass-errors-new($args...);
 }
 
+/// @alias sass-errors-throw
 @function se-throw($args...){
   @return sass-errors-throw($args...);
 }
 
+/// @alias sass-errors-try
 @function se-try($args...){
   @return sass-errors-try($args...);
 }
 
+/// @alias sass-errors-catch
 @function se-catch($args...){
   @return sass-errors-catch($args...);
 }
 
+/// @alias sass-errors-try-catch
 @function se-try-catch($args...) {
   @return sass-errors-try-catch($args...);
 }
 
+/// @alias sass-errors-get
 @function se-get($args...){
   @return sass-errors-get($args...);
 }
 
+/// @alias sass-errors-is-exception
 @function se-is-exception($args...){
   @return sass-errors-is-exception($args...);
 }
 
-// Handlers
-
+/// @alias sass-errors-debug
 @function se-debug($args...){
   @return sass-errors-debug($args...);
 }
 
+/// @alias sass-errors-error
 @function se-error($args...){
   @return sass-errors-error($args...);
 }
 
+/// @alias sass-errors-warn
 @function se-warn($args...){
   @return sass-errors-warn($args...);
 }

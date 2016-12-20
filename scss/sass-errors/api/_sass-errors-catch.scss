@@ -1,3 +1,42 @@
+///
+/// If an Exception has been throw, catch it and return it. The Exception will
+/// not be catched again.
+///
+/// If types `$types` are given, return the Exception only if its type matches
+/// with one of the given types. Otherwise, return `null`.
+///
+/// @group API
+/// @see sass-errors-throw
+///
+/// @param {String} $types... - Type or types the Exception type must match to.
+/// @return {Exception | Null} Catched Exception.
+///
+/// @example scss - Catch an Exception
+///   @function my-function-with-exception() {
+///     @return sass-errors-throw('Error', 'my_error_type');
+///   }
+///
+///   $ret: my-function-with-exception();
+///   $e: sass-errors-catch();
+///   // 'my_error_type' Exception
+///
+/// @example scss - Try to catch several times the same Exception
+///   $ret: my-function-with-exception();
+///   $e: sass-errors-catch();
+///   // 'my_error_type' Exception
+///   $e: sass-errors-catch();
+///   // null
+///
+/// @example scss - Catch specific types of Exceptions (with a type matching)
+///   $ret: my-function-with-exception();
+///   $e: sass-errors-catch('a_type', 'my_error_type');
+///   // 'my_error_type' Exception
+///
+/// @example scss - Catch specific types of Exceptions (with no types matching)
+///   $ret: my-function-with-exception();
+///   $e: sass-errors-catch('a_type', 'an_other_type');
+///   // null
+///
 
 @function sass-errors-catch($types...) {
   $e: $-sass-errors-exception !global;

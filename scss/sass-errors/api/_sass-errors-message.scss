@@ -1,10 +1,27 @@
+///
+/// Makes a formatted message from an error message and a prefix and returns
+/// it.
+///
+/// @group API
+///
+/// @param {String} $error - Error message
+/// @param {String} $prefix [null] - Message prefix
+/// @return {String}
+///
+/// @example scss - Simple message
+///   $msg: sass-errors-message('Error');
+///   // 'Error'
+///
+/// @example scss - Message with prefix
+///   $msg: sass-errors-message('Error', 'my-function');
+///   // 'my-function: Error'
+///
 
 @function sass-errors-message($error, $prefix: null) {
-  $msg: '';
-  @if $prefix != null {
-    $msg: $msg + $prefix + ': ';
+  @if type-of($prefix) == 'string' and str-length($prefix) > 0 {
+    @return '#{$prefix}: #{$error}';
   }
-  $msg: $msg + $error;
-
-  @return $msg;
+  @else {
+    @return '#{$error}';
+  }
 }

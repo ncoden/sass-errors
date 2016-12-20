@@ -1,3 +1,13 @@
+///
+/// Return the message of the given Exception `$e`
+///
+/// @group Helper
+/// @access private
+///
+/// @param {Exception} $e
+///
+/// @return {String | false} Message of the Exception
+///
 
 @function -sass-errors-get-exception-message($e) {
   @if type-of($e) == 'map' and map-has-key($e, 'message') {

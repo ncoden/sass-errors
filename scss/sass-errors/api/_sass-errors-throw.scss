@@ -1,3 +1,20 @@
+///
+/// Create an Exception and throw it. If an Exception is passed as first
+/// parameter, throw it. Always return false: this function should be called
+/// with `@return`.
+///
+/// @group API
+/// @see sass-errors-new
+///
+/// @param {ArgList} $args... [()] - Arguments used to create an Exception. See `@function sass-errors-new`
+///
+/// @return {False}
+///
+/// @example
+///   @function my-function() {
+///     @return sass-errors-throw('Error', 'unknown_error');
+///   }
+///
 
 @function sass-errors-throw($args...) {
   $e: sass-errors-new($args...);

@@ -1,3 +1,34 @@
+///
+/// Returns current thrown and not catched Exception.
+/// If not Exception has been thrown or is not already catchen, returns `null`
+///
+/// @group API
+///
+/// @return {Exception | Null} Current thrown and not catched Exception.
+///
+/// @example scss - Get an Exception
+///   @function my-function-with-exception() {
+///     @return sass-errors-throw('Error', 'my_error_type');
+///   }
+///
+///   $ret: my-function-with-exception();
+///   $e: sass-errors-get();
+///   // 'my_error_type' Exception
+///
+/// @example scss - Get several times the same Exception
+///   $ret: my-function-with-exception();
+///   $e: sass-errors-get();
+///   // 'my_error_type' Exception
+///   $e: sass-errors-get();
+///   // 'my_error_type' Exception
+///
+/// @example scss - Get an Exception after it has been catched
+///   $ret: my-function-with-exception();
+///   $e: sass-errors-catch();
+///   // 'my_error_type' Exception
+///   $e: sass-errors-get();
+///   // null
+///
 
 @function sass-errors-get() {
   @return $-sass-errors-exception;

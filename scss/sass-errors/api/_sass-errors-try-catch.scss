@@ -1,16 +1,58 @@
+///
+/// If the passed value `$value` is equal to `false` and no exception has been
+/// thrown, throw a new `unknown_error` Exception.
+
+/// If an Exception has been thrown, catch it with `sass-errors-catch` and pass
+/// the Exception to the given Exception Handler `$handler` with its arguments
+/// `$handler_args`. The `$handler` function must be defined in the same scope
+/// as `sass-errors-try-catch`.
+///
+/// If an Exception has been thrown, returns `false. Otherwise, returns `$value`.
+///
+/// @group API
+/// @see sass-errors-try
+/// @see sass-errors-catch
+///
+/// @param {*} $value - Value to check.
+/// @param {String} $catch_func_name [sass-errors-error] - Name of the function to which the Exception is passed.
+/// @param {ArgList} $catch_func_args [()] - Arguments of the catch function, following the Exception.
+/// @param {ArgList} $args... [()] - Arguments used to create an Exception. See `@function sass-errors-new`.
+///
+/// @return {* | False} - The function return.
+///
+/// @example scss
+///   @function my-try-function-with-value() {
+///     @return 'simple_value';
+///   }
+///
+///   @function my-try-function-with-exception() {
+///     @return sass-errors-throw('Error', 'my_error_type');
+///   }
+///
+///   @function my-catch-function($e) {
+///     @debug $e;
+///   }
+///
+///   $ret: sass-errors-try-catch(my-try-function-with-value(), my-catch-function, ());
+///   // 'simple value'
+///
+///   $ret: sass-errors-try-catch(my-try-function-with-exception(), my-catch-function, ());
+///   // $ret: `false`
+///   // @debug: 'my_error_type' Exception
+///
 
 @function sass-errors-try-catch(
-  $try_func_name,
-  $try_func_args: (),
-  $catch_func_name: null,
-  $catch_func_args: (),
-  $types: ()
+  $value,
+  $handler: sass-errors-error,
+  $handler_args: (),
+  $types: (),
+  $args...
 ) {
-  $res: sass-errors-try($try_func_name, $try_func_args);
+  $res: sass-errors-try($value, $args...);
   $e: sass-errors-catch($types...);
 
-  @if $e and $catch_func_name {
-    $_: call($catch_func_name, $e, $catch_func_args...);
+  @if $e and $handler {
+    $_: call($handler, $e, $handler_args...);
   }
   @return $res;
 }

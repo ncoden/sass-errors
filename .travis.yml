@@ -1,0 +1,11 @@
+language: sass
+install:
+  - gem install sass -v "3.4"
+  - npm install -g node-sass@3.4
+  - npm install
+script:
+  - sass "scss/sass-errors.scss"
+  - node-sass "scss/sass-errors.scss"
+  - npm test
+notifications:
+  email: false
