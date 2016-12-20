@@ -33,4 +33,4 @@ $e: se-catch();
 
 ---
 
-Version 0.4.0 - MIT License.
+Version 0.4.1 - MIT License.
