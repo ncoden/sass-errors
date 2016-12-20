@@ -6,6 +6,11 @@
   @include assert-equal($-sass-errors-exception, null,
     'Should set required variables');
 
+  $_: sass-errors-throw('ERROR', 'TYPE');
+  $_: sass-errors-init();
+  @include assert-equal($-sass-errors-exception, null,
+    'Should reset Exceptions');
+
   $_: sass-errors-init('_prefix_1');
   @include assert-equal(variable-exists('-sass-errors-prefix'), true,
     'Should set default prefix');

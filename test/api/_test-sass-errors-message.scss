@@ -2,12 +2,15 @@
 
   $__TESTS__: (
     'Should return a simple message.': (
+      ( null                  ): '',
+      ( null,         null    ): '',
       ( ''                    ): '',
       ( '',         ''        ): '',
       ( 'MESSAGE'             ): 'MESSAGE',
       ( 'MESSAGE',  ''        ): 'MESSAGE'
     ),
     'Should return a prefixed message.': (
+      ( null,       'PREFIX'  ): 'PREFIX: ',
       ( '',         'PREFIX'  ): 'PREFIX: ',
       ( 'MESSAGE',  'PREFIX'  ): 'PREFIX: MESSAGE'
     )
