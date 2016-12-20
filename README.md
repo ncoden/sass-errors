@@ -6,17 +6,31 @@
 npm install ncoden/sass-errors
 ```
 
-:warning: This Sass module is still in development.
-
 ### Usage
 
+Documentation: https://ncoden.github.io/sass-errors/docs
+
+#### Basic Example
 ```scss
 @import 'sass-errors';
-@import 'sass-errors-alias';
+@import 'sass-errors-alias'; // se- alias
 
-@function my-func() {
-  @return se-throw('Something Happened');
+@function division($number, $divisor) {
+  @if $divisor == 0 {
+    @return se-throw('Dividor cannot equal to 0.', 'dividor_zero');
+  }
+  @return $number / $divisor;
+}
+
+$ret: division(42, 0); // -> false
+
+$e: se-catch();
+@if $e {
+  // Display @error 'Dividor cannot equal to 0.'
+  $_: se-error($e);
 }
 ```
+
+---
 
 Version 0.3.0 - MIT License.
