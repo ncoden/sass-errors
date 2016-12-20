@@ -1,0 +1,17 @@
+@include test('sass-errors-is-exception') {
+  $_: sass-errors-init();
+
+  @include assert-equal(sass-errors-is-exception(), false,
+    'Should return `false` before an Exception has been thrown');
+
+  $_: sass-errors-throw('Error');
+  @include assert-equal(sass-errors-is-exception(), true,
+    'Should return `true` after an Exception has been thrown');
+  @include assert-equal(sass-errors-is-exception(), true,
+    'Should return several time `true` after an Exception has been thrown');
+
+  $_: sass-errors-catch();
+  @include assert-equal(sass-errors-is-exception(), false,
+    'Should return `false` after an Exception has been catched');
+
+}

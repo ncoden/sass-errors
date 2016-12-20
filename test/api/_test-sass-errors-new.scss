@@ -1,0 +1,20 @@
+@include test('sass-errors-new') {
+  $_: sass-errors-init();
+
+  $expected_exception: (
+    message: 'ERROR',
+    error: 'ERROR',
+    type: 'TYPE',
+    datas: (index: 'value')
+  );
+
+  $e: sass-errors-new('ERROR', 'TYPE', (index: 'value'));
+  @include assert-equal($e, $expected_exception,
+    'Should create a new Exception');
+
+  $e: sass-errors-new('ERROR', 'TYPE', (index: 'value'));
+  $e: sass-errors-new($e);
+  @include assert-equal($e, $expected_exception,
+    'Should returns the given Exception');
+
+}

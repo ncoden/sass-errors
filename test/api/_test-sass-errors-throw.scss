@@ -1,0 +1,29 @@
+@include test('sass-errors-throw') {
+  $_: sass-errors-init();
+
+  $expected_exception_1: (
+    message: 'ERROR_1',
+    error: 'ERROR_1',
+    type: 'TYPE_1',
+    datas: ()
+  );
+  $expected_exception_2: (
+    message: 'ERROR_2',
+    error: 'ERROR_2',
+    type: 'TYPE_2',
+    datas: ()
+  );
+
+  $_: sass-errors-throw('ERROR_1', 'TYPE_1');
+  @include assert-equal(sass-errors-get(), $expected_exception_1,
+    'Should throw a new Exception');
+
+  $_: sass-errors-throw('ERROR_2', 'TYPE_2');
+  @include assert-equal(sass-errors-get(), $expected_exception_2,
+    'Should throw a new Exception');
+
+  $_: sass-errors-throw($expected_exception_2);
+  @include assert-equal(sass-errors-get(), $expected_exception_2,
+    'Should throw a given Exception');
+
+}

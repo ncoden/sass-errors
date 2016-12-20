@@ -1,0 +1,48 @@
+@include test('sass-errors-try') {
+  $_: sass-errors-init();
+
+  $expected_exception: (
+    message: 'ERROR',
+    error: 'ERROR',
+    type: 'TYPE',
+    datas: ()
+  );
+
+  $expected_return_false_exception: (
+    message: 'Unknown error. Expected given $value to not be false.',
+    error: 'Unknown error. Expected given $value to not be false.',
+    type: 'unknown_error',
+    datas: ()
+  );
+
+  @function -test-return-value() {
+    @return 'VALUE';
+  }
+
+  @function -test-return-false() {
+    @return false;
+  }
+
+  @function -test-throw-exception() {
+    @return sass-errors-throw('ERROR', 'TYPE');
+  }
+
+  $ret: sass-errors-try(-test-return-value());
+  @include assert-equal($ret, 'VALUE',
+      'If a value is returned, should return the value of the try function.');
+  @include assert-equal(sass-errors-get(), null,
+      'If a value is returned, should do not throw Exceptions.');
+
+  $ret: sass-errors-try(-test-return-false());
+  @include assert-equal($ret, false,
+      'If a `false` is returned, should return `false`.');
+  @include assert-equal(sass-errors-get(), $expected_return_false_exception,
+      'If a `false` is returned and no Exception has been thrown, should throw a new Exception.');
+
+  $ret: sass-errors-try(-test-throw-exception());
+  @include assert-equal($ret, false,
+      'If an Exception has been thrown, should return `false`.');
+  @include assert-equal(sass-errors-get(), $expected_exception,
+      'If an Exception has been thrown, should do not catch the Exception.');
+
+}

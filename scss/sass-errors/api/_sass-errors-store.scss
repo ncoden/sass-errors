@@ -7,7 +7,7 @@
 /// @see sass-errors-new
 ///
 /// @param {List} $obj - List where to store the new Exception
-/// @param $args... - Arguments used to create an Exception. See `@function sass-errors-new`
+/// @param {ArgList} $args... [()] - Arguments used to create an Exception. See `@function sass-errors-new`.
 ///
 /// @return {List} - The new list
 ///
