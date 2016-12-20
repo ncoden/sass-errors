@@ -1,9 +1,9 @@
 # Sass Errors [![Build Status](https://travis-ci.org/ncoden/sass-errors.svg?branch=chore%2Ftravis)](https://travis-ci.org/ncoden/sass-errors)
 ✨ Awesome Error Handling in Sass
 
-### Install with NPM
+#### Install
 ```
-npm install ncoden/sass-errors
+npm install sass-errors --save-dev
 ```
 
 ### Usage
@@ -33,4 +33,4 @@ $e: se-catch();
 
 ---
 
-Version 0.4.0 - MIT License.
+Version 0.4.1 - MIT License.
