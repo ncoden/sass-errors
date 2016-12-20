@@ -1,23 +1,21 @@
 ///
-/// Call the given function with its arguments. If the function returns `false`
-/// without throwing Exceptions, throw a `unknown_error` Exception.
-///
-/// If the function returns `false` or has throw an Exception, returns `false.
-/// Otherwise, returns the function return.
+/// If the passed value `$value` is equal to `false` and no exception has
+/// been thrown, throw a new `unknown_error` Exception. If an Exception has
+/// been thrown, returns `false. Otherwise, returns `$value.
 ///
 /// @group API
 ///
-/// @param {String} $func_name - Name of the function to call.
-/// @param {List} $func_args [()] - Arguments of the function to call.
+/// @param {*} $value - Value to check.
+/// @param {ArgList} $args... [()] - Arguments used to create an Exception. See `@function sass-errors-new`.
 ///
-/// @return {* | False} - The function return.
+/// @return {* | False} - The given value, or `false` if an exception has been thrown.
 ///
 /// @example scss - A non-false value is returned
 ///   @function my-function-with-value() {
 ///     @return 'simple_value';
 ///   }
 ///
-///   $ret: sass-errors-try(my-function-with-value, ());
+///   $ret: sass-errors-try(my-function-with-value());
 ///   // 'simple value'
 ///   $e: sass-errors-catch();
 ///   // null
@@ -27,42 +25,52 @@
 ///     @return false;
 ///   }
 ///
-///   $ret: sass-errors-try(my-function-with-false, ());
+///   $ret: sass-errors-try(my-function-with-false());
 ///   // false
 ///   $e: sass-errors-catch();
 ///   // 'unknown_error' Exception
 ///
+/// @example scss - Setting the Exception to be throw when `false` is returned
+///   @function my-function-with-false() {
+///     @return false;
+///   }
+///
+///   $ret: sass-errors-try(
+///     my-function-with-false(),
+///     'My function failed',
+///     'my_function_failed'
+///   );
+///   // false
+///   $e: sass-errors-catch();
+///   // 'my_function_failed' Exception
 ///
 /// @example scss - An Exception is thrown
 ///   @function my-function-with-exception() {
 ///     @return sass-errors-throw('Error', 'my_error_type');
 ///   }
 ///
-///   $ret: sass-errors-try(my-function-with-exception, ());
+///   $ret: sass-errors-try(my-function-with-exception());
 ///   // false
 ///   $e: sass-errors-catch();
 ///   // 'my_error_type' Exception
 ///
 
-@function sass-errors-try($func_name, $func_args: ()) {
-  $res: call($func_name, $func_args...);
+@function sass-errors-try($value, $args...) {
 
   $e: $-sass-errors-exception;
   @if $e != null {
     @return false;
   }
 
-  @if $res == false {
-    @return sass-errors-throw(
-      $error: 'Function encuntered an unknow error. Expected @return to not be false.',
-      $type: 'unknown_error',
-      $datas: (
-        func_name: $func-name,
-        func_args: $func-args
-      ),
-      $prefix: $func-name
-    );
+  @if $value == false {
+    @if length($args) == 0 and length(keywords($args)) == 0 {
+      $args: (
+        error: 'Unknown error. Expected given $value to not be false.',
+        type: 'unknown_error'
+      );
+    }
+    @return sass-errors-throw($args...);
   }
 
-  @return $res;
+  @return $value;
 }

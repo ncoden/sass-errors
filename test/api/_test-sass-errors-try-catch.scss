@@ -1,4 +1,7 @@
 @include test('sass-errors-try-catch') {
+  // `sass-errors-try-catch` require to be declared in the same scope as handler function
+  @import '../../../scss/sass-errors/api/sass-errors-try-catch';
+
   $_: sass-errors-init();
 
   $expected_exception: (
@@ -16,12 +19,13 @@
     @return sass-errors-throw('ERROR', 'TYPE');
   }
 
-  @function -test-catch-function($e) {
+  @function -test-exception-handler($e) {
     $-test-function-exception: $e;
+    @return null;
   }
 
   $-test-function-exception: null;
-  $ret: sass-errors-try-catch(-test-return-value, (), -test-catch-function, ());
+  $ret: sass-errors-try-catch(-test-return-value(), -test-exception-handler, ());
   @include assert-equal($ret, 'VALUE',
       'If a value is returned, should return the value of the try function.');
   @include assert-equal(sass-errors-is-exception(), false,
@@ -30,7 +34,7 @@
       'If a value is returned, should do not call the catch function.');
 
   $-test-function-exception: null;
-  $ret: sass-errors-try-catch(-test-throw-exception, (), -test-catch-function, ());
+  $ret: sass-errors-try-catch(-test-throw-exception(), '-test-exception-handler', ());
   @include assert-equal($ret, false,
       'If an Exception has been thrown, should return `false`.');
   @include assert-equal(sass-errors-is-exception(), false,
